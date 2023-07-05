@@ -89,7 +89,7 @@ class PythonFileProcessor:
             if not os.path.exists(target_folder):
                 os.mkdir(target_folder)
 
-        if not os.path.exists(target_folder):
+        if not (os.path.exists(target_folder) and os.path.exists(self.source_folder)):
             raise FileExistsError(
                 "\033[31m您要访问的路径不存在或非空。请验证路径并重试。如果问题仍然存在，请确保文件未被移动、重命名或删除，并检查当前用户对文件的权限。\033[0m")
 
